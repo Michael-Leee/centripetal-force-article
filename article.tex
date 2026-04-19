@@ -716,6 +716,181 @@ a_n = \frac{v^2}{\rho},
 
 这个视角的意义在于：\textbf{法向力只由轨迹的几何形状决定，与速率的变化无关。} 无论速率是增加还是减少，只要物体沿同一轨迹运动，法向力都由 $F_n = mv^2/\rho$ 决定。
 
+\section{从牛顿定律到开普勒三定律}
+
+17世纪，丹麦天文学家开普勒根据第谷毕生的观测数据，总结出行星绕太阳运动的三大定律。两百多年后的今天，我们借助牛顿运动定律、万有引力定律以及完整的微积分工具，形式上严格地推导出这三大定律。整个推导仅需用到预备知识中的极坐标加速度公式，以及两个基本守恒定律——\textbf{角动量守恒}和\textbf{机械能守恒}。
+
+\subsection{第一步：机械能守恒与角动量守恒}
+
+行星在太阳引力 $F = -\dfrac{GMm}{r^2}$ 作用下运动，将其代入极坐标加速度的分量形式（见预备知识），由牛顿第二定律得：
+\begin{align}
+m\Bigl( \ddot{r} - r\dot{\theta}^2 \Bigr) &= -\frac{GMm}{r^2}, \tag{1a}\\
+m\Bigl( r\ddot{\theta} + 2\dot{r}\,\dot{\theta} \Bigr) &= 0. \tag{1b}
+\end{align}
+
+\textbf{角动量守恒：} 方程 (1b) 可写为
+\[
+\frac{d}{dt}(r^2\dot{\theta}) = 0 \quad\Longrightarrow\quad
+r^2\dot{\theta} = \frac{L}{m} = \text{常数}.
+\]
+由角动量定义 $L = mr^2\dot{\theta}$，这正是角动量守恒。
+
+\textbf{机械能守恒：} 从 (1a) 中消去时间变量，利用 $\dot{r} = \dfrac{dr}{d\theta}\,\dot{\theta}$ 以及 $r^2\dot{\theta} = L/m$，经过配方法可得：
+\[
+\frac{1}{2}m\dot{r}^2 + \frac{1}{2}\frac{L^2}{mr^2} - \frac{GMm}{r} = E = \text{常数}.
+\tag{2}
+\]
+方程 (2) 的物理意义清晰：左端第一项是径向动能，第二项是利用角动量表示的"离心势能"，第三项是引力势能，三者之和恒定。
+
+注意到 $v_r = \dot{r}$、$v_\theta = r\dot{\theta}$，式 (2) 可简洁地写成
+\[
+\frac{1}{2}mv^2 - \frac{GMm}{r} = E,
+\]
+这正是行星运动的机械能守恒定律。
+
+\subsection{第二步：开普勒第二定律（面积定律）}
+
+由角动量守恒，立即得到掠面速率：
+\[
+\frac{dA}{dt} = \frac{1}{2}r^2\dot{\theta} = \frac{L}{2m} = \text{常数}.
+\tag{3}
+\]
+其中 $A$ 是行星与太阳连线扫过的面积。由于 $\dfrac{dA}{dt}$ 为常数，行星与太阳的连线在相等时间内扫过相等的面积——开普勒第二定律得证。
+
+\textbf{几何直观：} 行星靠近太阳时（$r$ 小），线速度必须增大以保持面积速度不变；远离太阳时（$r$ 大），速度减小。这正是椭圆轨道上行星近日点快、远日点慢的根本原因。
+
+\subsection{第三步：开普勒第一定律（轨道定律）}
+
+现在从 (2) 出发，消去时间变量 $t$，得到 $r$ 随 $\theta$ 变化的轨道方程。
+
+由 (3) 有 $\dot{\theta} = \dfrac{L}{mr^2}$，代入 (2) 并利用链式法则 $\dot{r} = \dfrac{dr}{d\theta}\,\dot{\theta}$，得：
+\[
+\frac{dr}{d\theta} = \frac{mr^2}{L}\sqrt{\frac{2E}{m} + \frac{2GM}{r} - \frac{L^2}{m^2r^2}}.
+\tag{4}
+\]
+
+令 $u = \dfrac{1}{r}$，则 $\dfrac{dr}{d\theta} = -\dfrac{1}{u^2}\dfrac{du}{d\theta}$，代入并整理为关于 $u(\theta)$ 的方程：
+\[
+\left( \frac{du}{d\theta} \right)^2 = \frac{G^2M^2m^4}{L^4}\left( 1 + \frac{2EL^2}{G^2M^2m^3} \right) - \left( u - \frac{GMm^2}{L^2} \right)^2.
+\tag{5}
+\]
+
+对 (5) 积分（利用反正弦函数的原函数），得到：
+\[
+u = \frac{1}{r} = \frac{GMm^2}{L^2}\bigl[ 1 + \epsilon\cos(\theta + \theta_0) \bigr],
+\tag{6}
+\]
+其中 $\theta_0$ 是初相，$\epsilon$ 是\textbf{偏心率}（eccentricity）：
+\[
+\epsilon = \sqrt{1 + \frac{2EL^2}{G^2M^2m^3}}.
+\tag{7}
+\]
+
+取适当的极轴方向使 $\theta_0 = 0$，则轨道方程为：
+\[
+\boxed{r = \frac{p}{1 + \epsilon\cos\theta}},\qquad
+p = \frac{b^2}{a},\quad \epsilon = \frac{c}{a}.
+\tag{8}
+\]
+
+方程 (8) 正是圆锥曲线的极坐标标准方程。根据能量 $E$ 的符号：
+
+\begin{itemize}
+  \item $E < 0,\; \epsilon < 1$：轨道为\textbf{椭圆}——行星轨道（开普勒第一定律）；
+  \item $E = 0,\; \epsilon = 1$：轨道为\textbf{抛物线}；
+  \item $E > 0,\; \epsilon > 1$：轨道为\textbf{双曲线}的一支。
+\end{itemize}
+
+\textbf{验证椭圆性：} 由 (8) 可推出直角坐标下的标准椭圆方程。设太阳位于左焦点 $F_1(-c,0)$，远地点到右焦点 $F_2(c,0)$ 的距离满足
+\[
+r + r' = 2a \quad (\text{常数}),
+\]
+即到两焦点距离之和恒定的点的轨迹——这正是椭圆的定义。
+
+\subsection{第四步：椭圆轨道特殊点的速率}
+
+行星椭圆轨道（$E<0,\;\epsilon<1$）的几个特殊点具有简洁的速度表达式。设近日点（距太阳最近）与远日点（距太阳最远）处的速率分别为 $v_1$、$v_2$，则由能量守恒与角动量守恒：
+\[
+\begin{cases}
+\dfrac{1}{2}mv_1^2 - \dfrac{GMm}{a-c} = \dfrac{1}{2}mv_2^2 - \dfrac{GMm}{a+c},\\[8pt]
+m(a-c)v_1 = m(a+c)v_2,
+\end{cases}
+\]
+解得：
+\[
+v_1 = \frac{a+c}{b}\sqrt{\frac{GM}{a}},\qquad
+v_2 = \frac{a-c}{b}\sqrt{\frac{GM}{a}}.
+\tag{9}
+\]
+
+短轴顶点处的速率更为简洁（此处 $r=a$，$v_\theta = v$，$v_r = 0$）：
+\[
+v_3 = \sqrt{\frac{GM}{a}}.
+\tag{10}
+\]
+
+由 (10) 立即得到能量与角动量的轨道参数表示：
+\[
+E = \frac{1}{2}mv_3^2 - \frac{GMm}{a} = -\frac{1}{2}\frac{GMm}{a},
+\qquad
+L = m v_3 b = mb\sqrt{\frac{GM}{a}}.
+\tag{11}
+\]
+
+值得注意的是：\textbf{轨道上各点的速率完全由 $a$ 决定，与行星质量 $m$ 无关。} 这正是 (9)(10) 两式的核心含义。
+
+\subsection{第五步：开普勒第三定律（周期定律）}
+
+联立掠面速率 (3) 和短轴顶点速率 (10)：
+\[
+\frac{dA}{dt} = \frac{L}{2m} = \frac{b}{2}\sqrt{\frac{GM}{a}}.
+\tag{12}
+\]
+
+对上式从 $0$ 到 $T$ 积分（$T$ 为周期），行星恰好扫过整个椭圆，面积 $A = \pi ab$：
+\[
+\pi ab = \frac{b}{2}\sqrt{\frac{GM}{a}}\,T
+\quad\Longrightarrow\quad
+\boxed{\frac{a^3}{T^2} = \frac{GM}{4\pi^2} = \text{常数}}.
+\tag{13}
+\]
+
+这正是开普勒第三定律！常数 $K = \dfrac{GM}{4\pi^2}$ 仅取决于中心天体（太阳）的质量，与行星本身无关。
+
+三大定律的统一证明至此完成。整个推导链条如下：
+
+\[
+\text{牛顿第二定律 + 万有引力}
+\;\xrightarrow{\text{极坐标分解}}\;
+\begin{cases}
+\text{角动量守恒} \;\Longrightarrow\; \text{开普勒第二定律} \\
+\text{机械能守恒} \;\Longrightarrow\; \text{开普勒第一定律（轨道方程）}
+\end{cases}
+\;\xrightarrow{\text{联立求解}}\;
+\text{开普勒第三定律}.
+\]
+
+\subsection{延伸：三种宇宙速度}
+
+由能量方程 $\dfrac{1}{2}mv^2 - \dfrac{GMm}{r} = E$ 可以推导出几个重要的临界速度。
+
+\textbf{第一宇宙速度（环绕速度）：} 使物体在地球表面做圆轨道运动所需最小速度：
+\[
+v_1 = \sqrt{\frac{GM_\oplus}{R_\oplus}} \approx 7.9\;\text{km/s}.
+\]
+
+\textbf{第二宇宙速度（逃逸速度）：} 使物体刚好能逃逸到无穷远（$r\to\infty,\;v\to 0$），即 $E=0$ 时的速度：
+\[
+v_2 = \sqrt{\frac{2GM_\oplus}{R_\oplus}} = \sqrt{2}\,v_1 \approx 11.2\;\text{km/s}.
+\]
+
+\textbf{第三宇宙速度：} 使物体从地球表面逃逸太阳系所需速度（考虑地球公转的"引力协助"）：
+\[
+v_3 \approx 16.7\;\text{km/s}.
+\]
+
+这三个速度构成了人类航天能力的基本门槛——从环绕地球（$v_1$）、到登陆月球（$v_2$）、再到飞出太阳系（$v_3$），背后都是能量守恒与角动量守恒的精确计算。
+
 \section{小结}
 
 \begin{longtable}{p{3cm}p{10.5cm}}
