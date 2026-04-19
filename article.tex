@@ -1,0 +1,269 @@
+\documentclass[12pt,a4paper,UTF8]{ctexart}
+\usepackage{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\geometry{margin=1.5in,top=2cm,bottom=2cm}
+\hypersetup{colorlinks=true,linkcolor=blue}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{向心力详解}
+\fancyfoot[C]{\thepage}
+
+\setCJKmainfont{SimSun}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{FangSong}
+
+\title{\textbf{向心力详解}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section{引言}
+
+在日常生活与工程实践中，\textbf{圆周运动}是一种极为常见的运动形式。无论是人造卫星绕地球运转、汽车转弯、游乐场的旋转设施，还是微观世界中电子绕原子核的运动，都离不开圆周运动。而在所有圆周运动的研究中，\textbf{向心力}（Centripetal Force）是最核心的概念之一。
+
+本文将系统地介绍向心力的定义、来源、数学推导、典型应用场景，以及常见的认知误区。
+
+\section{什么是向心力？}
+
+\subsection{向心力的定义}
+
+\textbf{向心力}是使物体做圆周运动的一种力，它的方向始终指向圆心，与物体的运动方向（即切向方向）垂直。
+
+\begin{center}
+\fbox{向心力的方向：始终指向圆心 $\rightarrow$ 始终垂直于速度方向}
+\end{center}
+
+向心力并不是一种"新类型"的力，而是\textbf{各种已知力（如重力、弹力、摩擦力、电磁力等）的合力}在维持圆周运动时所表现出的效果。
+
+\subsection{向心力不是"做功的力"}
+
+由于向心力始终与速度方向垂直，根据功的定义
+\[
+W = \vec{F} \cdot \vec{s} = Fs\cos\theta,
+\]
+当 $\theta = 90^\circ$ 时，$\cos\theta = 0$，因此\textbf{向心力对物体不做功}。这意味着向心力只改变运动方向，不改变运动速度的大小（速率）。
+
+\section{向心力公式推导}
+
+\subsection{从加速度出发}
+
+设物体以半径 $r$ 做匀速圆周运动，线速度为 $v$，角速度为 $\omega$，周期为 $T$。
+
+在一个很短的时间间隔 $\Delta t$ 内，物体从点 $A$ 运动到点 $B$，对应的圆心角为 $\Delta\theta$。
+
+速度变化量为：
+\[
+\Delta\vec{v} = \vec{v}_B - \vec{v}_A.
+\]
+
+由几何关系（相似三角形），可以证明：
+\[
+\frac{|\Delta\vec{v}|}{v} = \frac{|\Delta\vec{r}|}{r}.
+\]
+
+两边除以 $\Delta t$ 并取极限 $\Delta t \to 0$：
+\[
+a_n = \lim_{\Delta t\to 0}\frac{|\Delta\vec{v}|}{\Delta t}
+      = \frac{v}{r}\lim_{\Delta t\to 0}\frac{|\Delta\vec{r}|}{\Delta t}
+      = \frac{v}{r}\cdot v = \frac{v^2}{r}.
+\]
+
+这个加速度方向指向圆心，称之为\textbf{向心加速度}（法向加速度）：
+\[
+\boxed{a_n = \frac{v^2}{r}}
+\]
+
+同理，利用 $v = \omega r$，也可写成：
+\[
+a_n = \omega^2 r.
+\]
+
+\subsection{向心力公式}
+
+由牛顿第二定律 $\vec{F} = m\vec{a}$，得到向心力大小：
+\[
+\boxed{F_n = m a_n = m\frac{v^2}{r} = m\omega^2 r.}
+\]
+
+方向：指向圆心（即曲率中心）。
+
+\section{向心力与其他物理量的关系}
+
+\subsection{速度、半径与周期的关系}
+
+线速度与周期 $T$（完成一圈的时间）的关系为：
+\[
+v = \frac{2\pi r}{T}.
+\]
+
+代入向心力公式：
+\[
+F_n = m\frac{(2\pi r / T)^2}{r} = \frac{4\pi^2 m r}{T^2}.
+\]
+
+利用 $\omega = 2\pi/T$，也可以写成 $F_n = m\omega^2 r$。
+
+\subsection{向心力与频率的关系}
+
+频率 $f = 1/T$，则 $\omega = 2\pi f$，故：
+\[
+F_n = m(2\pi f)^2 r = 4\pi^2 m f^2 r.
+\]
+
+\section{典型例题分析}
+
+\subsection{例题一：圆锥摆}
+
+如图所示（文字描述），一根长度为 $L$ 的绳子一端固定，另一端系一个小球，使小球在水平面内做匀速圆周运动，绳子与竖直方向的夹角为 $\theta$。求小球的周期和绳子张力。
+
+\textbf{分析：} 小球受两个力——重力 $mg$ 和绳子拉力 $T$。这两个力的合力提供向心力，方向水平指向圆心。
+
+\textbf{受力分解：}
+\[
+\begin{cases}
+T\cos\theta = mg & \text{（竖直方向平衡）}\\[4pt]
+T\sin\theta = \dfrac{mv^2}{r} & \text{（提供向心力）}
+\end{cases}
+\]
+
+由竖直方向平衡：$T = \dfrac{mg}{\cos\theta}$。
+
+圆周半径：$r = L\sin\theta$。
+
+代入向心力公式：
+\[
+T\sin\theta = \frac{mv^2}{L\sin\theta}
+\quad\Longrightarrow\quad
+v^2 = \frac{gL\sin^2\theta\tan\theta}{1}
+     = gL\sin\theta\cos\theta.
+\]
+
+周期 $T_{\text{摆}}$ 满足 $v = \dfrac{2\pi r}{T_{\text{摆}}} = \dfrac{2\pi L\sin\theta}{T_{\text{摆}}}$，解得：
+\[
+T_{\text{摆}} = 2\pi\sqrt{\frac{L\cos\theta}{g}}.
+\]
+
+\subsection{例题二：汽车转弯}
+
+一辆质量为 $m = 1200\,\text{kg}$ 的汽车，以速率 $v = 36\,\text{km/h} = 10\,\text{m/s}$ 通过一段水平弯道，弯道半径 $r = 50\,\text{m}$。忽略摩擦力，求地面对汽车的支持力大小。
+
+\textbf{解：} 水平面上转弯所需的向心力由地面摩擦力 $f$ 提供：
+\[
+f = \frac{mv^2}{r} = \frac{1200 \times 10^2}{50} = 24000\,\text{N}.
+\]
+
+竖直方向：$N = mg = 1200 \times 9.8 = 11760\,\text{N}$。
+
+若考虑摩擦力的最大值（$\mu = 0.6$），最大静摩擦力：
+\[
+f_{\max} = \mu N = 0.6 \times 11760 = 7056\,\text{N}.
+\]
+此时 $f > f_{\max}$，汽车将发生侧滑！因此车辆转弯时必须降速。
+
+\section{向心力与离心力}
+
+这是最容易混淆的概念。
+
+\begin{itemize}
+\item \textbf{向心力（Centripetal Force）}：\emph{真实存在的力}，来自其他物体（如绳子、桌面、重力等），方向指向圆心，是维持圆周运动的原因。
+\item \textbf{离心力（Centrifugal Force）}：\emph{虚拟的惯性力}，只在非惯性参考系（如旋转车厢）中人为引入的"假想力"，方向背离圆心，大小等于 $m\omega^2 r$。
+\end{itemize}
+
+\textbf{一个常用的记忆口诀：}
+\begin{center}
+\fbox{做圆周运动的物体\textbf{需要}向心力，不受\textbf{离心力}}
+\end{center}
+
+\section{生活中的向心力}
+
+\subsection{地球自转与重力}
+
+地球自转使得地球上的物体随地面一起旋转。这个旋转运动需要向心力，其方向指向地轴。由重力 $mg$（万有引力）提供向心力，因此：
+
+\[
+mg = F_{\text{万有引力}} - m\omega^2 r_{\text{⊥}}.
+\]
+
+其中 $r_{\text{⊥}}$ 为物体到地轴的垂直距离。这解释了为什么：
+\begin{itemize}
+\item 同一物体在赤道上所受重力最小（$r_{\text{⊥}}$ 最大，$\omega^2 r_{\text{⊥}}$ 最大）
+\item 在两极重力最大（$r_{\text{⊥}} = 0$，无需消耗重力分量）
+\end{itemize}
+
+\subsection{洗衣机甩干原理}
+
+衣物随滚筒高速旋转，水滴由于惯性保持原有的直线运动（而非随衣物做圆周运动），水滴通过衣物上的小孔被甩出，实现甩干效果。
+
+\subsection{卫星轨道}
+
+卫星绕地球做圆周运动的向心力由地球对卫星的万有引力提供：
+\[
+\frac{GMm}{r^2} = m\frac{v^2}{r}
+\quad\Longrightarrow\quad
+v = \sqrt{\frac{GM}{r}}.
+\]
+
+这就是\textbf{第一宇宙速度}的来源（近地轨道 $v \approx 7.9\,\text{km/s}$）。
+
+\section{非匀速圆周运动中的向心力}
+
+如果圆周运动是\textbf{非匀速的}，即速率在变化，那么物体同时受到切向力和法向力：
+
+\[
+\vec{F}_{\text{合}} = \underbrace{\vec{F}_n}_{\text{法向（指向圆心）}} + \underbrace{\vec{F}_t}_{\text{切向（沿切线方向）}}.
+\]
+
+其中：
+\[
+F_n = m\frac{v^2}{\rho},\qquad F_t = m\frac{dv}{dt}.
+\]
+
+\begin{itemize}
+\item $\vec{F}_n$ 改变运动方向（法向分量）
+\item $\vec{F}_t$ 改变速率大小（切向分量）
+\end{itemize}
+
+\section{小结}
+
+\begin{longtable}{p{3.5cm}p{10cm}}
+\toprule
+\textbf{物理量} & \textbf{表达式} \\
+\midrule
+\endhead
+向心加速度 & $a_n = \dfrac{v^2}{r} = \omega^2 r$ \\
+向心力 & $F_n = \dfrac{mv^2}{r} = m\omega^2 r$ \\
+向心力（用周期） & $F_n = \dfrac{4\pi^2 m r}{T^2}$ \\
+向心力（用频率） & $F_n = 4\pi^2 m f^2 r$ \\
+第一宇宙速度 & $v = \sqrt{\dfrac{GM}{r}}$ \\
+线速度 & $v = \dfrac{2\pi r}{T} = 2\pi r f$ \\
+角速度 & $\omega = \dfrac{2\pi}{T} = 2\pi f$ \\
+\bottomrule
+\end{longtable}
+
+\section*{参考与延伸阅读}
+
+\begin{itemize}
+\item 向心力是一种\textbf{效果力}，而非新的力种
+\item 一切做圆周运动的物体都需要向心力，来源可以是弹力、摩擦力、重力等
+\item 离心力是惯性力，仅在非惯性系中存在
+\item 向心力永不做功（方向始终与位移垂直）
+\end{itemize}
+
+\vfill
+\begin{center}
+\textbf{本文档使用 XeLaTeX / LuaLaTeX 编译生成} \\
+\today
+\end{center}
+
+\end{document}
