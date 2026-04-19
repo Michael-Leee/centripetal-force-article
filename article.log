@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  19 APR 2026 14:50
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  19 APR 2026 14:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -225,11 +225,22 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks22
+\thm@bodyfont=\toks23
+\thm@headfont=\toks24
+\thm@notefont=\toks25
+\thm@headpunct=\toks26
+\thm@preskip=\skip61
+\thm@postskip=\skip62
+\thm@headsep=\skip63
+\dth@everypar=\toks27
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks22
+\KV@toks@=\toks28
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
@@ -244,7 +255,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen186
 \Gm@layouthoffset=\dimen187
 \Gm@layoutvoffset=\dimen188
-\Gm@dimlist=\toks23
+\Gm@dimlist=\toks29
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
@@ -372,25 +383,25 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip61
+\Hy@SectionHShift=\skip64
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip62
-\f@nch@offset@elh=\skip63
-\f@nch@offset@erh=\skip64
-\f@nch@offset@olh=\skip65
-\f@nch@offset@orh=\skip66
-\f@nch@offset@elf=\skip67
-\f@nch@offset@erf=\skip68
-\f@nch@offset@olf=\skip69
-\f@nch@offset@orf=\skip70
-\f@nch@height=\skip71
-\f@nch@footalignment=\skip72
-\f@nch@widthL=\skip73
-\f@nch@widthC=\skip74
-\f@nch@widthR=\skip75
-\@temptokenb=\toks24
+\f@nch@headwidth=\skip65
+\f@nch@offset@elh=\skip66
+\f@nch@offset@erh=\skip67
+\f@nch@offset@olh=\skip68
+\f@nch@offset@orh=\skip69
+\f@nch@offset@elf=\skip70
+\f@nch@offset@erf=\skip71
+\f@nch@offset@olf=\skip72
+\f@nch@offset@orf=\skip73
+\f@nch@height=\skip74
+\f@nch@footalignment=\skip75
+\f@nch@widthL=\skip76
+\f@nch@widthC=\skip77
+\f@nch@widthR=\skip78
+\@temptokenb=\toks30
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen195
@@ -412,10 +423,10 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisrulewidth=\dimen263
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
-\LTleft=\skip76
-\LTright=\skip77
-\LTpre=\skip78
-\LTpost=\skip79
+\LTleft=\skip79
+\LTright=\skip80
+\LTpre=\skip81
+\LTpost=\skip82
 \LTchunksize=\count325
 \LTcapwidth=\dimen264
 \LT@head=\box58
@@ -427,7 +438,7 @@ Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \LT@rows=\count327
 \c@LT@tables=\count328
 \c@LT@chunks=\count329
-\LT@p@ftn=\toks25
+\LT@p@ftn=\toks31
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 34.
 (./article.aux)
@@ -557,9 +568,6 @@ Package hyperref Info: Link coloring ON on input line 45.
 \openout3 = `article.out'.
 
 
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
-
 LaTeX Font Warning: Font shape `TU/FandolSong-Regular.otf(0)/b/n' undefined
 (Font)              using `TU/FandolSong-Regular.otf(0)/m/n' instead on input l
 ine 47.
@@ -588,9 +596,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2]
 
-LaTeX Font Warning: Font shape `TU/FandolSong-Regular.otf(0)/m/it' undefined
-(Font)              using `TU/FandolSong-Regular.otf(0)/m/n' instead on input l
-ine 189.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Delta' on input line 154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 154.
+
+
+Overfull \hbox (87.22699pt too wide) detected at line 186
+\OML/cmm/m/it/12 A \OT1/cmr/m/n/12 = [] [] = [] []  [][]\OMS/cmsy/m/n/12 !  [] 
+[] \OT1/cmr/m/n/12 = [] [] \OMS/cmsy/m/n/12 ! 1\OML/cmm/m/it/12 :
+ []
 
 
 
@@ -602,14 +623,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3]
-Overfull \hbox (27.41432pt too wide) in alignment at lines 244--248
- [] [] 
- []
 
-
-Overfull \hbox (27.41432pt too wide) in alignment at lines 248--257
- [] [] 
- []
+LaTeX Font Warning: Font shape `TU/FandolSong-Regular.otf(0)/m/it' undefined
+(Font)              using `TU/FandolSong-Regular.otf(0)/m/n' instead on input l
+ine 259.
 
 
 
@@ -621,6 +638,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [4]
+Overfull \hbox (27.41432pt too wide) in alignment at lines 314--318
+ [] [] 
+ []
+
+
+Overfull \hbox (27.41432pt too wide) in alignment at lines 318--327
+ [] [] 
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -629,7 +654,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[5] (./article.aux)
+[5]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[6] (./article.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
@@ -637,22 +671,16 @@ L3 programming layer <2022/08/05>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `article.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `article.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  1D50D42B9A1FC3945F7C3A0B9CC73572;1853.
+Package rerunfilecheck Info: File `article.out' has not changed.
+(rerunfilecheck)             Checksum: 4E57E23BB4E186F76A91D09B23EBE762;2485.
  ) 
 Here is how much of TeX's memory you used:
- 14496 strings out of 473832
- 311446 string characters out of 5729482
- 741890 words of memory out of 5000000
- 37388 multiletter control sequences out of 15000+600000
+ 14660 strings out of 473832
+ 318540 string characters out of 5729482
+ 747053 words of memory out of 5000000
+ 37548 multiletter control sequences out of 15000+600000
  567167 words of font info for 89 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 79i,12n,93p,254b,420s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,12n,93p,544b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on article.pdf (5 pages).
+Output written on article.pdf (6 pages).

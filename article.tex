@@ -22,7 +22,7 @@
   \usepackage{CTEX}
 \fi
 
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsthm}
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{hyperref}
@@ -74,46 +74,116 @@ W = \vec{F}\cdot\vec{s} = Fs\cos\theta,
 
 \section{向心力公式推导}
 
-\subsection{从加速度出发}
+\subsection{模型说明}
 
-设物体以半径 $r$ 做匀速圆周运动，线速度为 $v$，角速度为 $\omega$，周期为 $T$。
+假设一质点在做匀速圆周运动，其速率为 $v$，速度为 $\vec{v}$。经过一个极短的时间 $\Delta t$ 后，物体走过一个极小的角度 $\Delta\theta$，速度变为 $\vec{v}+\Delta\vec{v}$。
 
-在一个很短的时间间隔 $\Delta t$ 内，物体从点 $A$ 运动到点 $B$，对应的圆心角为 $\Delta\theta$。
-
-速度变化量为：
+结合上述说明，我们将根据加速度的定义
 \[
-\Delta\vec{v} = \vec{v}_B - \vec{v}_A.
+\vec{a}=\frac{\Delta\vec{v}}{\Delta t}
+\]
+来分别推导向心加速度的方向和大小。
+
+\subsection{向心加速度的方向推导}
+
+根据 $\vec{a}=\frac{\Delta\vec{v}}{\Delta t}$ 可知，加速度的方向应与 $\Delta\vec{v}$ 的方向一致。
+
+由于物体做匀速圆周运动，故有
+\[
+|\vec{v}| = |\vec{v}+\Delta\vec{v}| = v,
+\]
+即 $\vec{v}$、$\vec{v}+\Delta\vec{v}$、$\Delta\vec{v}$ 构成一个等腰三角形。
+
+又根据几何关系可得，$\Delta\vec{v}$ 的对角亦为 $\Delta\theta$。注意 $\Delta\theta$ 是物体在 $\Delta t$ 时间内转过的角度，当 $\Delta t\to 0$ 时，$\Delta\theta\to 0$，此时 $\Delta\vec{v}$ 的方向将与 $\vec{v}$ 垂直，而加速度 $\vec{a}=\frac{\Delta\vec{v}}{\Delta t}$ 的方向也与 $\vec{v}$ 垂直。
+
+也就是说，物体做匀速圆周运动时，\textbf{加速度方向与速度方向垂直，指向圆心}。
+
+\subsection{向心加速度大小推导}
+
+由向心加速度的定义：
+\[
+a = \frac{|\Delta\vec{v}|}{\Delta t}.
 \]
 
-由几何关系（相似三角形），可以证明：
+其中 $|\Delta\vec{v}|$ 可由等腰三角形的几何关系经由\textbf{余弦定理}得到：
 \[
-\frac{|\Delta\vec{v}|}{v} = \frac{|\Delta\vec{r}|}{r}.
+\begin{aligned}
+|\Delta\vec{v}|
+&= \sqrt{|\vec{v}|^2 + |\vec{v}+\Delta\vec{v}|^2 - 2|\vec{v}||\vec{v}+\Delta\vec{v}|\cos\Delta\theta} \\[4pt]
+&= \sqrt{v^2 + v^2 - 2v\cdot v\cdot\cos\Delta\theta} \\[4pt]
+&= \sqrt{2}\,v\,\sqrt{1-\cos\Delta\theta}.
+\end{aligned}
 \]
 
-两边除以 $\Delta t$ 并取极限 $\Delta t\to 0$：
+此处用到二倍角公式：$1-\cos\Delta\theta = 2\sin^2\dfrac{\Delta\theta}{2}$，代入上式得：
 \[
-a_n = \lim_{\Delta t\to 0}\frac{|\Delta\vec{v}|}{\Delta t}
-     = \frac{v}{r}\cdot v = \frac{v^2}{r}.
+\begin{aligned}
+|\Delta\vec{v}|
+&= \sqrt{2}\,v\cdot\sqrt{2\sin^2\frac{\Delta\theta}{2}} \\[4pt]
+&= 2v\sin\frac{\Delta\theta}{2}.
+\end{aligned}
 \]
 
-这个加速度方向指向圆心，称之为\textbf{向心加速度}（法向加速度）：
+当 $\Delta t$ 非常小时，$\Delta\theta$ 也非常小，此时 $\sin\dfrac{\Delta\theta}{2}\approx\dfrac{\Delta\theta}{2}$（等价无穷小替换）。代入上式得：
 \[
-\boxed{a_n = \frac{v^2}{r}}
+\begin{aligned}
+|\Delta\vec{v}|
+&= 2v\cdot\frac{\Delta\theta}{2} \\[4pt]
+&= v\cdot\Delta\theta \\[4pt]
+&= v\cdot\omega\Delta t,
+\end{aligned}
+\]
+其中 $\omega$ 为角速度，$\omega = \dfrac{v}{r}$，代入上式得：
+\[
+|\Delta v| = \frac{v^2}{r}\Delta t.
 \]
 
-同理，利用 $v=\omega r$，也可写成：
+因此
 \[
-a_n = \omega^2 r.
+\boxed{a = \frac{|\Delta\vec{v}|}{\Delta t} = \frac{v^2}{r}}.
 \]
 
-\subsection{向心力公式}
+推导完毕。\qed
 
-由牛顿第二定律 $\vec{F}=m\vec{a}$，得到向心力大小：
+\subsection{结论}
+
+物体做匀速圆周运动时，\textbf{加速度方向与速度方向垂直，指向圆心}；加速度大小为 $\dfrac{v^2}{r}$。
+
+\subsection{补充说明}
+
+\subsubsection{关于 $|\Delta\vec{v}|$ 的几何求法}
+
+求 $|\Delta\vec{v}|$ 有更简单的办法——做等腰三角形底边的高，根据等腰三角形三线合一的性质，直接得出
 \[
-\boxed{F_n = ma_n = m\frac{v^2}{r} = m\omega^2 r.}
+|\Delta\vec{v}| = 2v\sin\frac{\Delta\theta}{2}.
 \]
 
-方向：指向圆心（即曲率中心）。
+\subsubsection{关于无穷小替换的严格条件}
+
+将 $\sin\dfrac{\Delta\theta}{2}$ 替换为 $\dfrac{\Delta\theta}{2}$，这在微积分中称为\textbf{无穷小替换}。替换的依据为：
+
+\begin{enumerate}
+\item $\displaystyle\lim_{x\to 0}\frac{\sin x}{x}=1$（可理解为 $y=\sin x$ 与 $y=x$ 在 $x=0$ 处相切且斜率相同）
+\item 被替换的项在方程中充当分子或分母中的\textbf{因式}
+\end{enumerate}
+
+若不满足以上条件贸然替换，可能产生错误结果。例如：
+\[
+A = \lim_{x\to 0}\frac{1}{\sin^2 x} - \frac{\cos^2 x}{x^2}.
+\]
+若直接替换 $\sin x\to x$：
+\[
+A \to \lim_{x\to 0}\frac{1}{x^2} - \frac{\cos^2 x}{x^2}
+= \lim_{x\to 0}\frac{1-\cos^2 x}{x^2}
+= \lim_{x\to 0}\frac{\sin^2 x}{x^2} = 1 \quad\text{（错误！）}
+\]
+正确做法是先通分，再在满足条件时使用替换：
+\[
+A = \lim_{x\to 0}\frac{x^2 - \sin^2 x\cos^2 x}{x^2\sin^2 x}
+= \lim_{x\to 0}\frac{x^2 - \sin^2 x\cos^2 x}{x^4}
+\;\longrightarrow\;
+\lim_{x\to 0}\frac{x^2 - x^4}{x^4} = \lim_{x\to 0}\left(\frac{1}{x^2}-1\right) \to \infty.
+\]
 
 \section{向心力与其他物理量的关系}
 
