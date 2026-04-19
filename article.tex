@@ -227,6 +227,66 @@ r = \sqrt{x^2+y^2},\qquad \theta = \arctan\frac{y}{x}.
 
 这就是我们在正文中频繁使用的两个公式的来源。
 
+\subsection{角动量的定义与物理意义}
+
+\textbf{角动量}（Angular Momentum）是描述物体绕某一点旋转状态的物理量，在有心力场中具有特殊的重要性。
+
+在平面运动中，角动量定义为
+\[
+L = rmv_\theta = mr^2\dot{\theta}.
+\tag{1}
+\]
+
+其中 $r$ 是到参考点的距离，$v_\theta = r\dot{\theta}$ 是垂直于径向的速度分量。物理意义：角动量是"旋转的惯性"——质量越大、离参考点越远、转得越快，旋转状态就越难改变。
+
+角动量的方向由右手定则确定：右手四指沿旋转方向弯曲，拇指指向的方向即为角动量方向。在本文涉及的平面圆周运动中，角动量始终垂直于运动平面，指向纸面外（为正）或纸面内（为负）。
+
+在有心力场（如万有引力）中，力始终指向或背离中心天体，因此\textbf{合力对中心点的力矩为零}：
+\[
+\vec{M} = \vec{r} \times \vec{F} = 0,
+\]
+因为 $\vec{F}$ 与 $\vec{r}$ 共线（有力心但无偏心）。由刚体转动定理 $M = \dfrac{dL}{dt}$，立即得到
+\[
+\frac{dL}{dt} = 0 \quad\Longrightarrow\quad L = \text{常数}.
+\]
+这正是角动量守恒定律——它是时间平移对称性（物理定律不随时间变化）的直接推论。
+
+角动量的量纲为 $[\text{能量}\times\text{时间}]$，在国际单位制中的单位是 $\text{kg}\cdot\text{m}^2/\text{s}$。
+
+\subsection{矢量叉乘的几何意义}
+
+在角动量的定义 $\vec{L} = \vec{r} \times m\vec{v}$ 中，涉及两个矢量的叉乘（外积）。理解叉乘的几何意义是掌握角动量概念的关键。
+
+\textbf{叉乘的定义：} 两个三维矢量 $\vec{a}$ 和 $\vec{b}$ 的叉乘 $\vec{c} = \vec{a} \times \vec{b}$ 是一个新的矢量，其满足：
+
+\begin{enumerate}
+  \item \textbf{方向：} $\vec{c}$ 同时垂直于 $\vec{a}$ 和 $\vec{b}$，方向由右手定则确定——右手四指从 $\vec{a}$ 转向 $\vec{b}$（取小于 $180^\circ$ 的夹角），拇指指向即为 $\vec{c}$ 的方向；
+  \item \textbf{大小：} $|\vec{c}| = |\vec{a}||\vec{b}|\sin\varphi$，其中 $\varphi$ 是 $\vec{a}$、$\vec{b}$ 之间的夹角。
+\end{enumerate}
+
+\textbf{几何直观：} $|\vec{a}||\vec{b}|\sin\varphi$ 恰好等于以 $\vec{a}$、$\vec{b}$ 为邻边所构成的平行四边形的面积。因此，叉乘的大小就是这两个矢量张成的平行四边形面积。
+
+在平面运动中，$\vec{r}$ 和 $\vec{v}$ 均在运动平面内，它们的叉乘结果必然垂直于该平面——方向只有"穿出纸面"和"穿入纸面"两种可能。这与角动量守恒中"方向不变"的结论完全一致。
+
+叉乘的一个重要代数性质是\textbf{反交换律}：
+\[
+\vec{a} \times \vec{b} = -(\vec{b} \times \vec{a}),
+\]
+这反映了左手系与右手系的区别。此外，当 $\vec{a}$ 与 $\vec{b}$ 共线（$\varphi = 0$ 或 $\pi$）时，$\sin\varphi = 0$，叉乘为零——这正是有心力场中力矩为零的原因，因为 $\vec{F}$ 与 $\vec{r}$ 共线。
+
+叉乘在直角坐标分量下的计算公式（供读者参考）：
+\[
+\vec{a} \times \vec{b}
+= \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+a_x & a_y & a_z \\
+b_x & b_y & b_z
+\end{vmatrix}
+= (a_y b_z - a_z b_y)\hat{i}
+  + (a_z b_x - a_x b_z)\hat{j}
+  + (a_x b_y - a_y b_x)\hat{k}.
+\]
+
 \section{什么是向心力？}
 
 \subsection{向心力的定义}
