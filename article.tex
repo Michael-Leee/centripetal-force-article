@@ -52,6 +52,181 @@
 
 本文将系统地介绍向心力的定义、来源、数学推导、典型应用场景，以及常见的认知误区。
 
+\section{预备知识：极坐标与圆周运动}
+
+在本文的分析中，我们将频繁使用极坐标这一有力工具。本节将从最基本的平面直角坐标出发，逐步推导极坐标下速度和加速度的表达式，确保读者能够完全理解后续章节的数学推导。
+
+\subsection{极坐标基本概念}
+
+在平面中确定一个点的位置，最直观的方式是使用\textbf{直角坐标}$(x,y)$：以原点 $O$ 为起点，沿 $x$ 轴方向移动 $x$ 单位，再沿 $y$ 轴方向移动 $y$ 单位。
+
+然而，对于圆周运动，\textbf{极坐标}$(r,\theta)$ 更加方便：
+\begin{itemize}
+  \item $r$：\textbf{径向距离}（radial distance），即该点到原点 $O$ 的距离；
+  \item $\theta$：\textbf{极角}（polar angle），即从正 $x$ 轴逆时针转过的角度（弧度制）。
+\end{itemize}
+
+两种坐标的转换关系为：
+\[
+x = r\cos\theta,\qquad y = r\sin\theta,\qquad
+r = \sqrt{x^2+y^2},\qquad \theta = \arctan\frac{y}{x}.
+\]
+
+\subsection{单位矢量 $\hat{e}_r$ 与 $\hat{e}_\theta$}
+
+在直角坐标系中，我们用 $\hat{i}$、$\hat{j}$ 表示沿 $x$、$y$ 轴的单位矢量。它们的大小为 1，方向固定不变。
+
+极坐标中，我们定义两个新的单位矢量：
+\begin{itemize}
+  \item $\hat{e}_r$（径向单位矢量）：指向 $r$ 增大的方向，即从原点指向该点的方向；
+  \item $\hat{e}_\theta$（横向单位矢量）：指向 $\theta$ 增大的方向，即 $\hat{e}_r$ 逆时针旋转 $90^\circ$ 的方向。
+\end{itemize}
+
+这两个矢量的大小均为 1，但它们的\textbf{方向随位置变化}（这是与 $\hat{i}$、$\hat{j}$ 的根本区别）。
+
+用直角坐标的单位矢量表示：
+\[
+\hat{e}_r = (\cos\theta)\hat{i} + (\sin\theta)\hat{j},\qquad
+\hat{e}_\theta = -(\sin\theta)\hat{i} + (\cos\theta)\hat{j}.
+\]
+
+可以验证：$\hat{e}_r \cdot \hat{e}_\theta = 0$（两者正交），且 $|\hat{e}_r| = |\hat{e}_\theta| = 1$。
+
+\subsection{单位矢量的时间导数}
+
+这是极坐标分析中最关键的一步。因为 $\hat{e}_r$ 和 $\hat{e}_\theta$ 的方向随 $\theta$ 变化，而 $\theta$ 可能随时间 $t$ 变化，所以它们对时间的导数不为零。
+
+对 $\hat{e}_r = (\cos\theta)\hat{i} + (\sin\theta)\hat{j}$ 求导（注意 $\hat{i}$、$\hat{j}$ 是常矢量）：
+\[
+\frac{d\hat{e}_r}{dt} = (-\sin\theta)\dot{\theta}\,\hat{i} + (\cos\theta)\dot{\theta}\,\hat{j}
+                      = \dot{\theta}\big[ -(\sin\theta)\hat{i} + (\cos\theta)\hat{j} \big]
+                      = \dot{\theta}\,\hat{e}_\theta.
+\]
+
+同理，对 $\hat{e}_\theta = -(\sin\theta)\hat{i} + (\cos\theta)\hat{j}$ 求导：
+\[
+\frac{d\hat{e}_\theta}{dt} = -(\cos\theta)\dot{\theta}\,\hat{i} - (\sin\theta)\dot{\theta}\,\hat{j}
+                           = -\dot{\theta}\big[ (\cos\theta)\hat{i} + (\sin\theta)\hat{j} \big]
+                           = -\dot{\theta}\,\hat{e}_r.
+\]
+
+这两个结果极其重要，务必牢记：
+\[
+\boxed{\frac{d\hat{e}_r}{dt} = \dot{\theta}\,\hat{e}_\theta},\qquad
+\boxed{\frac{d\hat{e}_\theta}{dt} = -\dot{\theta}\,\hat{e}_r}.
+\]
+
+其中 $\dot{\theta} \equiv \dfrac{d\theta}{dt}$ 表示角速度（Angular Velocity）。
+
+\subsection{位置、速度、加速度的极坐标表达式}
+
+\textbf{位置矢量：} 在极坐标中，位置矢量特别简单：
+\[
+\vec{r} = r\,\hat{e}_r.
+\]
+
+\textbf{速度：} 对位置求导：
+\[
+\vec{v} = \frac{d\vec{r}}{dt}
+        = \frac{d}{dt}(r\hat{e}_r)
+        = \dot{r}\,\hat{e}_r + r\,\frac{d\hat{e}_r}{dt}
+        = \dot{r}\,\hat{e}_r + r\dot{\theta}\,\hat{e}_\theta.
+\]
+
+这就是极坐标下的速度公式。各项的物理意义：
+\begin{itemize}
+  \item $\dot{r}\,\hat{e}_r$：\textbf{径向速度}，描述该点沿半径方向远离或靠近原点的快慢；
+  \item $r\dot{\theta}\,\hat{e}_\theta$：\textbf{横向速度}，描述该点绕原点转动的快慢。
+\end{itemize}
+
+\textbf{加速度：} 继续对速度求导：
+\[
+\vec{a} = \frac{d\vec{v}}{dt}
+        = \frac{d}{dt}(\dot{r}\,\hat{e}_r + r\dot{\theta}\,\hat{e}_\theta)
+        = \ddot{r}\,\hat{e}_r + \dot{r}\,\frac{d\hat{e}_r}{dt}
+          + \dot{r}\,\dot{\theta}\,\hat{e}_r + r\ddot{\theta}\,\hat{e}_\theta
+          + r\dot{\theta}\,\frac{d\hat{e}_\theta}{dt}.
+\]
+
+代入 $\dfrac{d\hat{e}_r}{dt} = \dot{\theta}\hat{e}_\theta$ 和 $\dfrac{d\hat{e}_\theta}{dt} = -\dot{\theta}\hat{e}_r$：
+\[
+\vec{a} = \ddot{r}\,\hat{e}_r + \dot{r}(\dot{\theta}\hat{e}_\theta)
+        + \dot{r}\dot{\theta}\,\hat{e}_r + r\ddot{\theta}\,\hat{e}_\theta
+        + r\dot{\theta}(-\dot{\theta}\hat{e}_r).
+\]
+
+合并 $\hat{e}_r$ 和 $\hat{e}_\theta$ 前的系数：
+\[
+\vec{a} = (\ddot{r} - r\dot{\theta}^2)\,\hat{e}_r
+        + (r\ddot{\theta} + 2\dot{r}\dot{\theta})\,\hat{e}_\theta.
+\]
+
+这就是极坐标下加速度的完整表达式！各部分的物理意义：
+\begin{itemize}
+  \item $(\ddot{r} - r\dot{\theta}^2)$：\textbf{径向加速度}分量；
+  \item $(r\ddot{\theta} + 2\dot{r}\dot{\theta})$：\textbf{横向加速度}分量。
+\end{itemize}
+
+其中 $-r\dot{\theta}^2$ 这一项尤为关键——它描述了由于方向变化（即使 $r$ 不变）而产生的"离心"效应，在圆周运动中它恰好提供了向心加速度。
+
+\begin{center}
+\fbox{$\displaystyle
+\begin{aligned}
+\vec{r} &= r\hat{e}_r, \\[4pt]
+\vec{v} &= \dot{r}\hat{e}_r + r\dot{\theta}\hat{e}_\theta, \\[4pt]
+\vec{a} &= (\ddot{r} - r\dot{\theta}^2)\hat{e}_r + (r\ddot{\theta} + 2\dot{r}\dot{\theta})\hat{e}_\theta.
+\end{aligned}$}
+\end{center}
+
+\subsection{匀速圆周运动（特例）}
+
+如果物体做\textbf{匀速}圆周运动（uniform circular motion），则：
+\begin{itemize}
+  \item 半径不变：$r = \text{常数}$，故 $\dot{r} = \ddot{r} = 0$；
+  \item 角速度不变：$\dot{\theta} = \omega = \text{常数}$，故 $\ddot{\theta} = 0$。
+\end{itemize}
+
+代入上式，得到：
+\[
+\vec{v} = r\omega\,\hat{e}_\theta,\qquad
+\vec{a} = -r\omega^2\,\hat{e}_r.
+\]
+
+注意到：
+\begin{itemize}
+  \item 速度方向沿 $\hat{e}_\theta$（切向），大小为 $v = r\omega$；
+  \item 加速度方向沿 $-\hat{e}_r$（指向圆心），大小为 $a = r\omega^2 = \dfrac{v^2}{r}$——这正是向心加速度公式！
+\end{itemize}
+
+这说明向心加速度 $-r\omega^2\hat{e}_r$ 是极坐标加速度公式在匀速圆周运动这个特例下的自然结果，而非凭空引入的假设。
+
+\subsection{非匀速圆周运动（$r$ 为常数，$\dot{\theta}$ 变化）}
+
+如果物体做圆周运动但速率发生变化（$r$ 不变，但 $\dot{\theta}$ 变化），则：
+\[
+\dot{r} = \ddot{r} = 0,\qquad \ddot{\theta} \neq 0.
+\]
+
+代入通式：
+\[
+\vec{v} = r\dot{\theta}\,\hat{e}_\theta = r\omega\,\hat{e}_\theta,\qquad
+\vec{a} = -r\dot{\theta}^2\,\hat{e}_r + r\ddot{\theta}\,\hat{e}_\theta.
+\]
+
+此时加速度有两部分：
+\begin{itemize}
+  \item $\vec{a}_n = -r\dot{\theta}^2\hat{e}_r$：\textbf{法向加速度}，只改变速度方向；
+  \item $\vec{a}_t = r\ddot{\theta}\,\hat{e}_\theta$：\textbf{切向加速度}，只改变速度大小。
+\end{itemize}
+
+如果用线速度 $v = r\dot{\theta}$ 表示，则 $\dot{\theta} = v/r$，$\ddot{\theta} = \dot{v}/r$，上式可化为：
+\[
+\vec{a}_n = -\frac{v^2}{r}\hat{e}_r,\qquad
+\vec{a}_t = \frac{dv}{dt}\,\hat{e}_\theta.
+\]
+
+这就是我们在正文中频繁使用的两个公式的来源。
+
 \section{什么是向心力？}
 
 \subsection{向心力的定义}
