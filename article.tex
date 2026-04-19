@@ -381,13 +381,15 @@ a_t = r\alpha = r\frac{d\omega}{dt},
 
 将加速度的两个分量代入 $\vec{F}=m\vec{a}$，得到非匀速圆周运动完整的动力学方程：
 
-\begin{center}
-\fbox{$\displaystyle
+非匀速圆周运动完整的动力学方程为
+\[
 \begin{cases}
 F_n = m\,\dfrac{v^2}{r}, & \text{法向力（提供向心加速度）}\\[8pt]
 F_t = m\,\dfrac{dv}{dt}, & \text{切向力（提供切向加速度）}
-\end{cases}$
-\end{center}
+\end{cases}
+\qquad\Longrightarrow\qquad
+\vec{F}_{\text{合}} = \vec{F}_n + \vec{F}_t.
+\]
 
 \subsection{法向力与切向力的物理意义}
 
@@ -432,7 +434,114 @@ T\sin\theta = m\,\frac{v^2}{r} = m\,\frac{(r\omega)^2}{r} = m r\omega^2.
 
 若绳子被缓慢收缩（$dr/dt < 0$），根据角动量守恒 $L = mr^2\omega = \text{常数}$，收缩过程中 $\omega$ 增大，向心力需求增大，若 $T$ 不变，摆球将向内侧移动（$r$ 减小）以增大 $\omega$ 满足守恒。
 
-\section{小结
+\subsection{综合例题：汽车转弯并加速}
+
+一辆质量 $m=1000\,$kg 的汽车，以速率 $v_0=10\,$m/s 驶入一段圆弧弯道（半径 $r=50\,$m）。驾驶员持续给油，使汽车沿弯道做加速运动，加速度大小恒为 $a_t=2\,$m/s$^2$（切向）。求：
+
+（1）驶入弯道后第 3 秒时汽车所受合力的合力大小和方向；
+
+（2）若汽车轮胎与地面间的最大静摩擦系数为 $\mu=0.8$，汽车不侧滑所能达到的最大切向加速度。
+
+\textbf{解：}
+
+（1）第 3 秒时，速率
+\[
+v = v_0 + a_t t = 10 + 2\times 3 = 16\;\text{m/s}.
+\]
+
+切向加速度 $a_t = 2\,$m/s$^2$（已知）。
+
+法向加速度
+\[
+a_n = \frac{v^2}{r} = \frac{16^2}{50} = \frac{256}{50} = 5.12\;\text{m/s}^2.
+\]
+
+合力大小
+\[
+F = m\sqrt{a_n^2 + a_t^2}
+   = 1000\times\sqrt{5.12^2 + 2^2}
+   = 1000\times\sqrt{26.21 + 4}
+   = 1000\times\sqrt{30.21}
+   \approx 5496\;\text{N}.
+\]
+
+合力方向：设切向方向为正，则合力与切向的夹角 $\phi$ 满足
+\[
+\tan\phi = \frac{a_n}{a_t} = \frac{5.12}{2} = 2.56,
+\qquad \phi = \arctan(2.56) \approx 68.6^\circ,
+\]
+即合力方向指向弯道内侧偏前方 $68.6^\circ$。
+
+（2）汽车不侧滑的条件：法向力由摩擦力提供，最大值为 $f_n^{\max} = \mu mg = 0.8\times 1000\times 9.8 = 7840\,$N。
+
+由法向动力学方程 $f_n = m v^2/r$，最大允许速率满足
+\[
+\frac{mv_{\max}^2}{r} \leq \mu mg
+\quad\Longrightarrow\quad
+v_{\max} \leq \sqrt{\mu g r} = \sqrt{0.8\times 9.8\times 50}
+          = \sqrt{392} \approx 19.8\;\text{m/s}.
+\]
+
+在速率不超过 $19.8\,$m/s 的范围内，最大允许切向加速度为 $a_t^{\max} = 2\,$m/s$^2$（受发动机功率限制）。若弯道半径不变，且驾驶员全力加速，则当速率达到 $v_{\max}\approx 19.8\,$m/s 时，地面摩擦力刚好提供全部所需法向力，此时再加速将导致侧滑。
+
+\section{角动量与动能定理}
+
+非匀速圆周运动中，力对圆心的力矩为零时，角动量守恒；而法向力和切向力做功的情况截然不同。
+
+\subsection{角动量守恒}
+
+对圆心 $O$ 的角动量：
+\[
+\vec{L} = \vec{r}\times m\vec{v} = mr^2\dot{\theta}\,\hat{k}.
+\]
+
+合力对 $O$ 的力矩：
+\[
+\vec{M} = \vec{r}\times\vec{F}
+        = \underbrace{\vec{r}\times\vec{F}_n}_{=0\text{（共线）}}
+          + \underbrace{\vec{r}\times\vec{F}_t}_{=0\text{（平行）}}
+        = 0.
+\]
+因此 $\vec{L} = mr^2\dot{\theta} = \text{常数}$，即 $r^2\dot{\theta} = \dfrac{L}{m}$ 为常数。
+
+这一结论的物理意义：当只有法向力（指向圆心）和切向力（沿切线）作用时，合力的力矩始终为零，角动量必然守恒，与运动是否匀速无关。
+
+从角动量守恒可推出一个重要推论：当 $r$ 减小时，$\dot{\theta}$ 必然增大，这正是花样滑冰收拢旋转时越转越快的原因。
+
+\subsection{动能定理}
+
+合力的功等于动能增量：
+\[
+W = \int \vec{F}_{\text{合}}\cdot d\vec{r}
+  = \int F_t\,ds = \int m\,\frac{dv}{dt}\,v\,dt
+  = m\int v\,dv = \frac{1}{2}mv^2\bigg|_{v_0}^{v}.
+\]
+
+其中 $ds = v\,dt$ 是弧微分。法向力 $F_n$ 永不做功（方向始终与位移 $d\vec{r}$ 垂直），只有切向力 $F_t$ 做功，这与我们关于"法向力只改变方向、只改变速度大小"的定性分析完全一致。\qed
+
+\subsection{机械能守恒的条件}
+
+若除重力、弹力等保守力外无其他外力做功，则机械能守恒。例如弹簧振子：
+\[
+\frac{1}{2}mv^2 + \frac{1}{2}k(r-r_0)^2 = E = \text{常数}.
+\]
+该方程与角动量守恒方程 $mr^2\dot{\theta} = L$ 联立，可完全确定弹簧振子的运动轨迹。
+
+\section{统一视角：曲率与法向力}
+
+回顾前文，法向加速度的通式为
+\[
+a_n = \frac{v^2}{\rho},
+\]
+其中 $\rho$ 是轨迹的曲率半径。对于圆周运动 $\rho=r$，对于任意平面曲线，$\rho$ 随位置变化。
+
+\textbf{曲率半径的几何定义：} 在曲线上一点，曲率定义为 $\kappa = \dfrac{|d\theta|}{ds}$，其中 $d\theta$ 为切向方向转过的微元角，$ds$ 为对应的弧长微元。曲率半径 $\rho = 1/\kappa$。
+
+以抛物线 $y = kx^2$ 为例：在顶点 $(0,0)$ 处，曲率为 $\kappa = |y''|/(1+y'^2)^{3/2} = 2k$，故 $\rho = 1/(2k)$。若物体沿该抛物线运动，在顶点处的法向加速度必为 $v^2/(1/(2k)) = 2kv^2$。
+
+这个视角的意义在于：\textbf{法向力只由轨迹的几何形状决定，与速率的变化无关。} 无论速率是增加还是减少，只要物体沿同一轨迹运动，法向力都由 $F_n = mv^2/\rho$ 决定。
+
+\section{小结}
 
 \begin{longtable}{p{3cm}p{10.5cm}}
 \toprule
