@@ -293,23 +293,146 @@ v = \sqrt{\frac{GM}{r}}.
 \]
 这就是\textbf{第一宇宙速度}的来源（近地轨道 $v\approx 7.9\,\text{km/s}$）。
 
-\section{非匀速圆周运动中的向心力}
+\section{非匀速圆周运动}
 
-如果圆周运动是\textbf{非匀速的}，物体同时受到切向力和法向力：
+\subsection{从几何到动力学}
+
+前面推导的基础是速度大小保持不变，即 $|\vec{v}|=|\vec{v}+\Delta\vec{v}|$。若速度大小也在变化，\textbf{速度矢量 $\vec{v}$ 的变化 $\Delta\vec{v}$ 将同时包含方向改变和大小改变两个来源}。
+
+我们把 $\Delta\vec{v}$ 分解为两部分：
 \[
-\vec{F}_{\text{合}} = \underbrace{\vec{F}_n}_{\text{法向（指向圆心）}}
-                   + \underbrace{\vec{F}_t}_{\text{切向（沿切线方向）}}.
+\Delta\vec{v} = \Delta\vec{v}_{\text{方向}} + \Delta\vec{v}_{\text{大小}},
 \]
-其中：
+其中 $\Delta\vec{v}_{\text{方向}}$ 仅由方向改变引起（大小不变），$\Delta\vec{v}_{\text{大小}}$ 仅由大小改变引起（方向不变）。
+
+相应地，加速度也分解为两个分量：
 \[
-F_n = m\frac{v^2}{\rho},\qquad F_t = m\frac{dv}{dt}.
+\vec{a} = \underbrace{\vec{a}_n}_{\text{法向加速度（改变方向）}}
+        + \underbrace{\vec{a}_t}_{\text{切向加速度（改变速率）}}.
 \]
+
+将上式乘以质量 $m$，便得到合力的分解：
+\[
+\vec{F}_{\text{合}} = \underbrace{\vec{F}_n}_{\text{法向力（指向圆心）}}
+                   + \underbrace{\vec{F}_t}_{\text{切向力（沿切线方向）}}.
+\]
+
+\subsection{法向加速度与切向加速度的大小}
+
+\textbf{法向加速度 $a_n$ 的推导}完全沿用前文的结果——仅改变方向、不改变大小，故
+\[
+a_n = \frac{v^2}{\rho},
+\]
+其中 $\rho$ 为曲率半径。对于圆周运动，$\rho = r$，于是
+\[
+a_n = \frac{v^2}{r}.
+\]
+
+\textbf{切向加速度 $a_t$}来自速度大小的变化。设物体在 $\Delta t$ 时间内速率从 $v$ 变为 $v+\Delta v$，则
+\[
+a_t = \frac{\Delta v}{\Delta t} = \frac{dv}{dt}.
+\]
+方向沿切线，与速度同向（加速）或反向（减速）。
+
+两个分量的方向互相垂直：
+\[
+\vec{a}_n \perp \vec{a}_t,\qquad |\vec{a}| = \sqrt{a_n^2 + a_t^2}.
+\]
+
+\subsection{极坐标推导（独立验证）}
+
+为了交叉验证上述分解的正确性，我们用极坐标从运动学出发严格推导。
+
+设物体在极坐标系 $(r,\theta)$ 中运动，其位矢为 $\vec{r}=r\,\hat{e}_r$，速度为
+\[
+\vec{v} = \dot{r}\,\hat{e}_r + r\dot{\theta}\,\hat{e}_\theta,
+\]
+其中 $\hat{e}_r$、$\hat{e}_\theta$ 为随物体转动的正交基矢。
+
+对 $\vec{v}$ 求导，注意到 $\dot{\hat{e}}_r = \dot{\theta}\,\hat{e}_\theta$、$\dot{\hat{e}}_\theta = -\dot{\theta}\,\hat{e}_r$，得到加速度：
+\[
+\vec{a} = \bigl(\ddot{r} - r\dot{\theta}^2\bigr)\,\hat{e}_r
+        + \bigl(r\ddot{\theta} + 2\dot{r}\dot{\theta}\bigr)\,\hat{e}_\theta.
+\]
+
+对于\textbf{圆周运动}（$r=$ 常数，即 $\dot{r}=0$），上式简化为
+\[
+\boxed{\vec{a} = -r\dot{\theta}^2\,\hat{e}_r + r\ddot{\theta}\,\hat{e}_\theta}.
+\]
+
+第一项 $-\dot{\theta}^2 r\,\hat{e}_r$ 是法向加速度，指向圆心，大小为
+\[
+a_n = \omega^2 r = \frac{v^2}{r}\quad(\omega=\dot{\theta},\; v=r\omega).
+\]
+
+第二项 $r\ddot{\theta}\,\hat{e}_\theta$ 是切向加速度，与切向方向一致，大小为
+\[
+a_t = r\alpha = r\frac{d\omega}{dt},
+\]
+其中 $\alpha=\ddot{\theta}$ 为角加速度。
+
+由于 $v=r\omega$，对两边求导得
+\[
+\frac{dv}{dt} = r\frac{d\omega}{dt} = r\alpha,
+\]
+即 $a_t = \dfrac{dv}{dt}$，与几何分解完全一致。\qed
+
+\subsection{动力学方程}
+
+将加速度的两个分量代入 $\vec{F}=m\vec{a}$，得到非匀速圆周运动完整的动力学方程：
+
+\begin{center}
+\fbox{$\displaystyle
+\begin{cases}
+F_n = m\,\dfrac{v^2}{r}, & \text{法向力（提供向心加速度）}\\[8pt]
+F_t = m\,\dfrac{dv}{dt}, & \text{切向力（提供切向加速度）}
+\end{cases}$
+\end{center}
+
+\subsection{法向力与切向力的物理意义}
+
+这两个分量的物理作用完全不同：
+
 \begin{itemize}
-\item $\vec{F}_n$ 改变运动方向（法向分量）
-\item $\vec{F}_t$ 改变速率大小（切向分量）
+\item \textbf{法向力 $F_n$}：决定轨迹的弯曲程度。只改变速度方向，不改变速度大小。即使 $F_n=0$，物体仍可沿直线运动（$r\to\infty$ 的极限）。
+\item \textbf{切向力 $F_t$}：决定速率的变化。只改变速度大小，不改变方向。即使 $F_t=0$，物体仍做匀速圆周运动。
 \end{itemize}
 
-\section{小结}
+当两者同时为零时，物体做匀速直线运动（静止或惯性运动）。
+
+\section{非匀速圆周运动的典型场景}
+
+\subsection{变半径圆周运动：弹簧振子}
+
+一质量为 $m$ 的小球系在弹性系数为 $k$ 的轻弹簧一端，弹簧另一端固定在 $O$ 点。小球在光滑水平面上做往复运动，同时在水平面内旋转（弹簧长度随时间周期性变化）。设任意时刻弹簧长度为 $r(t)$，角速度为 $\omega(t)$。
+
+\textbf{分析：} 小球受弹簧弹力 $F = -k(r-r_0)\,\hat{e}_r$（$r_0$ 为原长），方向始终沿半径方向，故为纯法向力（无切向分量）。
+
+由极坐标加速度公式：
+\[
+\begin{cases}
+-k(r-r_0) = m(\ddot{r} - r\omega^2) \quad\text{（径向）}\\[6pt]
+0 = m(r\ddot{\theta} + 2\dot{r}\dot{\theta}) \quad\text{（切向）}
+\end{cases}
+\]
+第二式给出角动量守恒条件 $r^2\dot{\theta} = \text{常数}$，第一式则描述径向的弹簧振动。
+
+\subsection{变速圆锥摆：摆线运动}
+
+圆锥摆中若绳子长度 $L$ 随时间变化（例如用滑轮收放绳子），则摆球同时做变速圆周运动。
+
+\textbf{分析：} 设某一时刻绳子与竖直夹角为 $\theta$，长度为 $r$，角速度为 $\omega$。
+
+竖直方向平衡（近似条件）：$T\cos\theta \approx mg$。
+
+水平方向提供法向力：
+\[
+T\sin\theta = m\,\frac{v^2}{r} = m\,\frac{(r\omega)^2}{r} = m r\omega^2.
+\]
+
+若绳子被缓慢收缩（$dr/dt < 0$），根据角动量守恒 $L = mr^2\omega = \text{常数}$，收缩过程中 $\omega$ 增大，向心力需求增大，若 $T$ 不变，摆球将向内侧移动（$r$ 减小）以增大 $\omega$ 满足守恒。
+
+\section{小结
 
 \begin{longtable}{p{3cm}p{10.5cm}}
 \toprule
@@ -320,6 +443,10 @@ F_n = m\frac{v^2}{\rho},\qquad F_t = m\frac{dv}{dt}.
 向心力 & $F_n = \dfrac{mv^2}{r} = m\omega^2 r$ \\
 向心力（用周期） & $F_n = \dfrac{4\pi^2mr}{T^2}$ \\
 向心力（用频率） & $F_n = 4\pi^2mf^2r$ \\
+切向加速度 & $a_t = \dfrac{dv}{dt} = r\alpha$ \\
+切向力 & $F_t = m\,\dfrac{dv}{dt} = mr\alpha$ \\
+总加速度大小 & $|\vec{a}| = \sqrt{a_n^2 + a_t^2}$ \\
+合力分解 & $\vec{F}_{\text{合}} = \vec{F}_n + \vec{F}_t$ \\
 第一宇宙速度 & $v = \sqrt{\dfrac{GM}{r}}$ \\
 线速度 & $v = \dfrac{2\pi r}{T} = 2\pi rf$ \\
 角速度 & $\omega = \dfrac{2\pi}{T} = 2\pi f$ \\
