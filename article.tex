@@ -231,26 +231,28 @@ r = \sqrt{x^2+y^2},\qquad \theta = \arctan\frac{y}{x}.
 
 \textbf{角动量}（Angular Momentum）是描述物体绕某一点旋转状态的物理量，在有心力场中具有特殊的重要性。
 
-在平面运动中，角动量定义为
+角动量定义为
 \[
-L = rmv_\theta = mr^2\dot{\theta}.
-\tag{1}
+\vec{L} = \vec{r} \times \vec{p},
 \]
+其中 $\vec{r}$ 是从参考点（通常取力心）指向物体的位置矢量，$\vec{p} = m\vec{v}$ 是物体的动量。
 
-其中 $r$ 是到参考点的距离，$v_\theta = r\dot{\theta}$ 是垂直于径向的速度分量。物理意义：角动量是"旋转的惯性"——质量越大、离参考点越远、转得越快，旋转状态就越难改变。
-
-角动量的方向由右手定则确定：右手四指沿旋转方向弯曲，拇指指向的方向即为角动量方向。在本文涉及的平面圆周运动中，角动量始终垂直于运动平面，指向纸面外（为正）或纸面内（为负）。
-
-在有心力场（如万有引力）中，力始终指向或背离中心天体，因此\textbf{合力对中心点的力矩为零}：
+对时间求导，可得
 \[
-\vec{M} = \vec{r} \times \vec{F} = 0,
+\frac{d\vec{L}}{dt} = \frac{d}{dt}(\vec{r} \times \vec{p}) = \vec{v} \times m\vec{v} + \vec{r} \times m\vec{a} = \vec{r} \times \vec{F} = \vec{M},
 \]
-因为 $\vec{F}$ 与 $\vec{r}$ 共线（有力心但无偏心）。由刚体转动定理 $M = \dfrac{dL}{dt}$，立即得到
-\[
-\frac{dL}{dt} = 0 \quad\Longrightarrow\quad L = \text{常数}.
-\]
-这正是角动量守恒定律——它是时间平移对称性（物理定律不随时间变化）的直接推论。
+其中 $\vec{M}$ 是合外力对参考点的力矩。由于 $\vec{v} \times m\vec{v} = 0$，两项只剩下 $\vec{r} \times \vec{F}$——这正是力矩的定义。
 
+在有心力场（如万有引力）中，力始终指向或背离中心天体，因此 $\vec{F} \parallel \vec{r}$，合力对力心的力矩为零：
+\[
+\vec{M} = \vec{r} \times \vec{F} = 0 \quad\Longrightarrow\quad \frac{d\vec{L}}{dt} = 0 \quad\Longrightarrow\quad L = \text{常数}.
+\]
+这正是角动量守恒定律。
+
+在本文涉及的平面圆周运动中，$\vec{r}$ 与 $\vec{v}$ 均在运动平面内，角动量的方向由右手定则确定——右手四指沿旋转方向弯曲，拇指指向的方向即为 $\vec{L}$ 的方向，始终垂直于运动平面。将大小展开可得标量形式：
+\[
+L = mr^2\dot{\theta}.
+\]
 角动量的量纲为 $[\text{能量}\times\text{时间}]$，在国际单位制中的单位是 $\text{kg}\cdot\text{m}^2/\text{s}$。
 
 \subsection{矢量叉乘的几何意义}
