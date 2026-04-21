@@ -235,13 +235,21 @@ r = \sqrt{x^2+y^2},\qquad \theta = \arctan\frac{y}{x}.
 \[
 \vec{L} = \vec{r} \times \vec{p},
 \]
-其中 $\vec{r}$ 是从参考点（通常取力心）指向物体的位置矢量，$\vec{p} = m\vec{v}$ 是物体的动量。
+其中 $\vec{p} = m\vec{v}$ 是动量，$\vec{r}$ 是从参考点（通常取力心）指向物体的位置矢量。
 
+力矩的定义是
+\[
+\vec{M} = \vec{r} \times \vec{F}.
+\]
 对时间求导，可得
 \[
 \frac{d\vec{L}}{dt} = \frac{d}{dt}(\vec{r} \times \vec{p}) = \vec{v} \times m\vec{v} + \vec{r} \times m\vec{a} = \vec{r} \times \vec{F} = \vec{M},
 \]
-其中 $\vec{M}$ 是合外力对参考点的力矩。由于 $\vec{v} \times m\vec{v} = 0$，两项只剩下 $\vec{r} \times \vec{F}$——这正是力矩的定义。
+其中 $\vec{M}$ 是合外力对参考点的力矩。由于 $\vec{v} \times m\vec{v} = 0$，两项只剩下 $\vec{r} \times \vec{F}$。
+
+上式告诉我们：力矩等于角动量随时间的变化率。如果合外力矩为零，则体系的角动量守恒。
+
+如果刚体受到的合力和合力矩都是零，则称刚体处于	extbf{平衡状态}。
 
 在有心力场（如万有引力）中，力始终指向或背离中心天体，因此 $\vec{F} \parallel \vec{r}$，合力对力心的力矩为零：
 \[
